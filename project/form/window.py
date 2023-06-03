@@ -3,11 +3,9 @@ from PyQt6.QtWidgets import (
     QLabel,
     QSpinBox,
     QPushButton,
-    QComboBox,
     QTableWidget,
 )
 from project.form.constants import (
-    PARAMETERS,
     WIDTH,
     HEIGHT,
     LEFT,
@@ -26,44 +24,29 @@ class MainWindow(QMainWindow):
         self.create_objects()
 
     def create_objects(self):
-        self.obj.set_obj(
-            object=QLabel(self),
-            title='Select parameter to track',
-            above=self.obj.indent,
-            case=0,
-        )
-
-        self.obj.add_obj(
+        labels: list[str] = ['Number of operators', 'Average customers', 'Service scale']
+        for label in labels:
             self.obj.set_obj(
-                object=QComboBox(self),
-                values=PARAMETERS,
+                object=QLabel(self),
+                title=label,
                 above=self.obj.indent,
-                left=LEFT * 10,
-            ),
-            key='combobox',
-        )
+                case=0,
+            )
 
+            self.obj.add_obj(
+                self.obj.set_obj(
+                    object=QSpinBox(self),
+                    above=self.obj.indent,
+                    left=LEFT * 10,
+                    step=1,
+                    span=[0, 100000000],
+                    value=5,
+                ),
+                key='spinbox',
+            )
+            self.obj.increase_indent()
         self.obj.increase_indent()
-        self.obj.set_obj(
-            object=QLabel(self),
-            title='Number of operators',
-            above=self.obj.indent,
-            case=0,
-        )
 
-        self.obj.add_obj(
-            self.obj.set_obj(
-                object=QSpinBox(self),
-                above=self.obj.indent,
-                left=LEFT * 10,
-                step=1,
-                span=[0, 100000000],
-                value=4,
-            ),
-            key='spinbox',
-        )
-
-        self.obj.increase_indent(2)
         self.obj.add_obj(
             self.obj.set_obj(
                 object=QPushButton(self),
@@ -83,4 +66,3 @@ class MainWindow(QMainWindow):
             ),
             key='table',
         )
-

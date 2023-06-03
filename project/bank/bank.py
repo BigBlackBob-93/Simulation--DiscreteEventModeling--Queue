@@ -6,11 +6,11 @@ from sys import exit
 
 
 class Bank:
-    def __init__(self, operators_count: int):
+    def __init__(self, operators_count: int, average: int, scale: int):
         self.model_time: float = 0
         self.queue: Queue = Queue()
         self.operators: Operators = Operators(operators_count)
-        self.events: Events = Events()
+        self.events: Events = Events(average=average, scale=scale)
         self.current_event_type: EventType = EventType.new_customer
 
     def new_customer(self) -> None:

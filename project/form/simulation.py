@@ -28,7 +28,11 @@ class Simulation:
 
     def start(self):
         self.table.clear_table()
-        self.system = Bank(self.window.obj.objects.get('spinbox')[0].value())
+        self.system = Bank(
+            operators_count=self.window.obj.objects.get('spinbox')[0].value(),
+            average=self.window.obj.objects.get('spinbox')[1].value(),
+            scale=self.window.obj.objects.get('spinbox')[2].value(),
+        )
         self.timer.start(self.shot)
 
     def stop(self):
