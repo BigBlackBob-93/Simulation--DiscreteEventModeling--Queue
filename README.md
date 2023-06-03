@@ -2,5 +2,4 @@
 GUI : PyQT/Имитационное моделирование
 
 
-
-![Screenshot_6](https://github.com/BigBlackBob-93/Simulation--DiscreteEventModeling--Queue/assets/101857203/1671c483-d08a-42a6-8560-869dc4e3fb9a)
+![model](https://github.com/BigBlackBob-93/Simulation--DiscreteEventModeling--Queue/assets/101857203/c045395c-c266-4bdd-8d7a-4100f68252e3)
