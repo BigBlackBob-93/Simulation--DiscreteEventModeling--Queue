@@ -38,3 +38,10 @@ class Operators:
             if operator.get_time() == time:
                 return operator
         exit("Invalid end of services time")
+
+    def get_number_of_free_operators(self) -> int:
+        number: int = 0
+        for operator in self.operators:
+            if operator.is_free():
+                number += 1
+        return number

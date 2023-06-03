@@ -2,5 +2,5 @@ from enum import Enum
 
 
 class EventType(Enum):
-    new_customer = 0
-    end_of_services = 1
+    new_customer = 'new customer'
+    end_of_services = 'end of services'
